@@ -1,15 +1,17 @@
-import mongoose from "mongoose";``
+import mongoose from 'mongoose';
 
 interface IWilder {
-    name : †
+  name: string, 
+  city: string,
+  skills: {title: string, votes:number}[];
 }
 
-const WilderSchema = new mongoose.Schema({
-  name: { 
-      type: String, 
-      unique: true },
+const Schema = mongoose.Schema;
+const WilderSchema = new Schema<IWilder>({
+  name: { type: String, unique: true },
   city: String,
   skills: [{ title: String, votes: Number }],
-});
 
-module.exports = mongoose.model("wilder", WilderSchema);
+})
+
+export default mongoose.model("wilder", WilderSchema);
